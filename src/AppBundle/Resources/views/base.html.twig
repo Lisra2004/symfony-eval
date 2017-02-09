@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,8 +24,16 @@
 <body>
 
     <!-- Navbar -->
+    <div id="navbar">
+        {% block navbar %}
+            {#{% include 'navbar.html.twig' %}#}
+        {% endblock %}
+    </div>
 
     <!-- Contenu -->
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
 
     <script src="{{ asset('bundles/app/js/ie10-viewport-bug-workaround.js') }}"></script>
 

@@ -1,4 +1,12 @@
 app_admin_dashboard:
-    path: /
+    path: ""
     defaults:
         _controller: AppBundle:Admin/Dashboard:dashboard
+
+app_admin_publication:
+    resource: "publication.yml"
+    prefix:   /admin/publication
+
+app_admin_science:
+    resource: "science.yml"
+    prefix:   /admin/science

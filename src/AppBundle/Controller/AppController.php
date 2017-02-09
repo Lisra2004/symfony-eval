@@ -2,8 +2,6 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Publication;
-use AppBundle\Form\PublicationType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
@@ -19,6 +17,12 @@ class AppController extends Controller
      */
     public function homeAction()
     {
-        return $this->render('AppBundle:App:home.html.twig');
+        $publications = $this
+            ->getDoctrine()
+            ->getRepository('AppBundle:Publication')
+            ->findBy([], ['publishedAt' => 'DESC'], 3);
+        return $this->render('AppBundle:App:home.html.twig', [
+            'publication_list' => $publications,
+        ]);
     }
 }
